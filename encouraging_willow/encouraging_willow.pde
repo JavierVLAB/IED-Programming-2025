@@ -8,5 +8,13 @@ void setup() {
 
 void draw() {
   background(30);
+  boolean questionX = mouseX > x && mouseX < x + L;
+  boolean questionY = mouseY > y && mouseY < y + L;
+  
+  if(questionX && questionY){
+    fill(0,255,0);
+  } else {
+    fill(255,0,0);
+  }
   square(x,y,L);
 }
