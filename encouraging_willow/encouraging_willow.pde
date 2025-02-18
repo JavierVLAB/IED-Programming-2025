@@ -2,7 +2,7 @@ int x, y, L;
 
 void setup() {
   size(600,600);
-  x = width/2; y = height/2; L = 40;
+  L = 140; x = width/2-L/2; y = height/2 -L/2; 
   noStroke();
 }
 
@@ -12,7 +12,7 @@ void draw() {
   boolean questionY = mouseY > y && mouseY < y + L;
   
   if(questionX && questionY){
-    fill(0,255,0);
+    fill(#C47979);
   } else {
     fill(255,0,0);
   }
