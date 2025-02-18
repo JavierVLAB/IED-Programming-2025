@@ -1,7 +1,12 @@
+int x, y, L;
+
 void setup() {
   size(600,600);
+  x = width/2; y = height/2; L = 40;
+  noStroke();
 }
 
 void draw() {
-  circle(400,200,80);
+  background(30);
+  square(x,y,L);
 }
