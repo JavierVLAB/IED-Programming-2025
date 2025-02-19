@@ -2,10 +2,10 @@ int x, y, L;
 
 void setup() {
   size(600, 600);
-  background(#0711F5);
+  background(#ED5C07);
   L=40; x=0; y=0;
   stroke(255);
-  //strokeWeight(4);
+  strokeWeight(4);
 }
 
 void draw() {
