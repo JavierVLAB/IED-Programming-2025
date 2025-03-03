@@ -1,6 +1,7 @@
 
 void setup() {
   size(600, 600);
+  dibujo(width/2, height/2);
 }
 
 void draw() {
@@ -8,12 +9,17 @@ void draw() {
   //dibujo(x, y);
 }
 
-void mousePressed(){
-  dibujo(mouseX,mouseY);
+void mousePressed() {
+  dibujo(mouseX, mouseY);
 }
 
 void keyPressed() {
-  dibujo(random(width),random(height));
+
+  if (key=='s') {
+    save();
+  } else {
+    dibujo(random(width), random(height));
+  }
 }
 
 void dibujo(float x, float y) {
