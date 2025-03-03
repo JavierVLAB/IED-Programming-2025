@@ -7,6 +7,7 @@ void setup() {
 void draw() {
   //background(0);
   //dibujo(x, y);
+  
 }
 
 void mousePressed() {
@@ -16,7 +17,7 @@ void mousePressed() {
 void keyPressed() {
 
   if (key=='s') {
-    save();
+    save("dibujo.png");
   } else {
     dibujo(random(width), random(height));
   }
