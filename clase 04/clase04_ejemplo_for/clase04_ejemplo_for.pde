@@ -6,8 +6,8 @@ void setup() {
 void draw() {
   background(0);
   
-  for (int x = 40; x <= width-40; x+=40) {
-    for (int y = 40; y <= height-40; y+=40) {
+  for (int x = 100; x <= width-100; x+=40) {
+    for (int y =100; y <= height-100; y+=40) {
       
       if(mouseX > x - 20 && mouseX < x + 20 
        && mouseY > y - 20 && mouseY < y + 20){
@@ -16,8 +16,9 @@ void draw() {
          fill(0,255,0); 
       }
       
-      float s = min(abs(mouseX-x),40);
-      circle(x, y, s);
+      float diametro = min(abs(mouseX-x),30);
+      diametro = map(diametro, 0, 30, 10, 30);
+      circle(x, y, diametro*sin(frameCount*0.01));
     }
   }
   
