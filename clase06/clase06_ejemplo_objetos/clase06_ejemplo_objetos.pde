@@ -6,5 +6,11 @@ void setup () {
 }
 
 void draw() {
+  background(0);
+  pelota.move();
+  pelota.dibujar_pelota();
+}
+
+void keyPressed(){
   pelota.dibujar_pelota();
 }
