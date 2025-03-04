@@ -9,4 +9,8 @@ class Ball {
     size = random(10,20);
   }
   
+  void dibujar_pelota(){
+    circle(x,y,size);
+  }
+  
 }

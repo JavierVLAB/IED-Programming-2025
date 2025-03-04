@@ -6,5 +6,5 @@ void setup () {
 }
 
 void draw() {
-  circle(x,y,30);
+  pelota.dibujar_pelota();
 }
