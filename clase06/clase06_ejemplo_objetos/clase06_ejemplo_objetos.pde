@@ -1,8 +1,8 @@
-float x = 110;
-float y = 230;
+Ball pelota;
 
 void setup () {
   size(600,600);
+  pelota = new Ball();
 }
 
 void draw() {
