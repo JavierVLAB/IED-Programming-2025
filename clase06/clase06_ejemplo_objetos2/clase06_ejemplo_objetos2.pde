@@ -1,17 +1,24 @@
-Ball pelota;
+Ball[] balls;
+int N = 10;
 
 void setup () {
   size(600,600);
-  pelota = new Ball(random(width),random(height));
+  
+  balls = new Ball[N];
+  
+  for(int i = 0; i < N; i++){
+    balls[i] = new Ball(random(width),random(height));
+  }
 }
 
 void draw() {
   background(0);
-  pelota.move();
-  pelota.dibujar_pelota();
+  for(int i = 0; i < N; i++){
+    balls[i].move();
+    balls[i].dibujar_pelota();
+  }
 }
 
 void mousePressed(){
-  pelota.x = mouseX;
-  pelota.y = mouseY;
+
 }
