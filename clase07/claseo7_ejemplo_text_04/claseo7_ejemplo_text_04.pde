@@ -3,15 +3,16 @@ PFont myFont;
 
 void setup() {
   fullScreen();
-  myFont = createFont("Geologica_Auto-Regular.ttf", 0.2*height);
+  myFont = createFont("Geologica_Auto-Regular.ttf", height/4);
   textFont(myFont);
 }
 
 void draw() {
   background(#572EFF);
   fill(#f1f1f1);
-  textAlign(LEFT, TOP);
-  for (int i = 0; i < 5; i++) {
-    text(texto, -frameCount*i, i*0.2*height);
+  
+  textAlign(LEFT, BOTTOM);
+  for (int i = 1; i <= 4; i++) {
+    text(texto, -frameCount*i, i*height/4);
   }
 }
