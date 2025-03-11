@@ -5,14 +5,16 @@ void setup() {
 }
 
 void draw() {
+
+  float R1 = 200;
+  float R2 = 10;
   
-  if(frameCount % 15 == 0){
-    fill(random(255),random(255),random(255));
-  }
-
-  float R = frameCount*0.1;
-  float waveX = R*sin(radians(frameCount));
-  float waveY = R*cos(radians(frameCount));
-
-  circle(width/2 + waveX, height/2 + waveY, 5);
+  float wave1X = R1*sin(radians(frameCount));
+  float wave1Y = R1*cos(radians(frameCount));
+  float wave2X = R2*sin(3*radians(frameCount));
+  float wave2Y = R2*cos(3*radians(frameCount));
+  
+  circle(width/2 + wave1X + wave2X, 
+        height/2 + wave1Y + wave2Y, 
+        5);
 }
