@@ -25,7 +25,7 @@ class Ball {
       vy = -vy;
       //size += 20;
     }
-
+    vx += 0.2;
     x += vx;
     y += vy;
   }
