@@ -2,7 +2,7 @@ PImage[] imgs;
 
 
 void setup() {
-  size(900, 900);
+  size(600, 600);
   frameRate(1);
   ellipseMode(CORNER);
   imgs = new PImage[4];
