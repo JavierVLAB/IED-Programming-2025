@@ -4,7 +4,7 @@ PImage[] imgs;   // Declaro el arreglo de imagenes
 
 void setup() {
   size(600, 600);
-  frameRate(1); // Hacemos que salga a un frame por seg
+  frameRate(10); // Hacemos que salga a un frame por seg
   ellipseMode(CENTER);
   imgs = new PImage[4]; // creo el array de 4 imagenes
 
@@ -54,3 +54,13 @@ void draw() {
     }
   }
 }
+
+void keyPressed() {
+    if(key == 's'){
+      noLoop(); 
+    }
+    if(key == 'b'){
+      loop();
+    }
+   
+} 
