@@ -1,3 +1,4 @@
+let socket; //libreria de conexion
 
 let estado = 0;
 let tiempoInicio;
@@ -12,6 +13,13 @@ function setup() {
   textAlign(CENTER, CENTER);
   textSize(32);
   tiempoInicio = millis();
+  
+  
+  socket = new WebSocket("ws://192.168.8.141:8080"); // Reemplazá con IP local
+
+  socket.onmessage = (event) => {
+    puntos = JSON.parse(event.data);
+  };
 }
 
 function draw() {
@@ -85,6 +93,12 @@ function enviarTexto() {
   console.log("Texto ingresado:", texto);
   input.value('');
   texto = '';
+}
+
+function send_text(text){
+  if (socket.readyState === WebSocket.OPEN) {
+    socket.send(JSON.stringify({ text: text}));
+  }
 }
 
 function windowResized() {
