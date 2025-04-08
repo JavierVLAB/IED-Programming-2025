@@ -13,13 +13,9 @@ function setup() {
   textAlign(CENTER, CENTER);
   textSize(32);
   tiempoInicio = millis();
-  
-  
-  socket = new WebSocket("ws://192.168.8.141:8080"); // Reemplazá con IP local
 
-  socket.onmessage = (event) => {
-    puntos = JSON.parse(event.data);
-  };
+  socket = new WebSocket("ws://0.0.0.0:8080"); // Reemplazá con IP local
+
 }
 
 function draw() {
@@ -28,7 +24,7 @@ function draw() {
   if (estado < 4) {
     eval("pantalla" + (estado + 1) + "()");
 
-    if (millis() - tiempoInicio > 10000) {
+    if (millis() - tiempoInicio > 500) {
       estado++;
       tiempoInicio = millis();
     }
@@ -82,7 +78,9 @@ function pantallaInput() {
   }
 
   let textoMostrado = texto;
-  if (cursorVisible) textoMostrado += "|";
+  if (cursorVisible) {
+    textoMostrado += "|";
+  }
 
   textAlign(LEFT, CENTER);
   fill(100);
@@ -91,18 +89,26 @@ function pantallaInput() {
 
 function enviarTexto() {
   console.log("Texto ingresado:", texto);
+  if (socket.readyState === WebSocket.OPEN) {
+    socket.send(JSON.stringify( {
+    text:
+      texto
+    }
+    ));
+    console.log("ssss");
+  }
   input.value('');
   texto = '';
 }
 
-function send_text(text){
-  if (socket.readyState === WebSocket.OPEN) {
-    socket.send(JSON.stringify({ text: text}));
-  }
-}
+
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
-  if (input) input.position(width / 2 - 150, height / 2);
-  if (boton) boton.position(width / 2 - 40, height / 2 + 50);
+  if (input) {
+    input.position(width / 2 - 150, height / 2);
+  }
+  if (boton) {
+    boton.position(width / 2 - 40, height / 2 + 50);
+  }
 }
