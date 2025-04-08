@@ -10,7 +10,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   background(255);
 
-  socket = new WebSocket("ws://192.168.1.133:8080"); // Reemplazá con IP local
+  socket = new WebSocket("ws://192.168.8.141:8080"); // Reemplazá con IP local
 
   socket.onmessage = (event) => {
     puntos = JSON.parse(event.data);

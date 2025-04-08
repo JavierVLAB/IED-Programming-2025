@@ -11,7 +11,7 @@ wss.on('connection', (ws) => {
   ws.on('message', (msg) => {
     try {
       const data = JSON.parse(msg);
-      clients.set(ws, { id, x: data.x, y: data.y, r: data.r, g: data.g, b: data.b, text: data.text });
+      clients.set(ws, { id, x: data.x, y: data.y, r: data.r, g: data.g, b: data.b, text: data.text, read: data.read });
 
       const payload = JSON.stringify([...clients.values()]);
       // Broadcast a todos

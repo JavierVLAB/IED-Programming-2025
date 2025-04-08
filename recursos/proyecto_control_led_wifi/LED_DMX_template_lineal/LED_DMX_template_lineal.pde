@@ -1,7 +1,7 @@
 // Numero de leds
 int numLeds = 300;
 // IP del arduino. Conectar el arduino y ver su IP
-String arduinoIP = "192.168.8.145";
+String arduinoIP = "192.168.8.147";
 
 
 void setup () {
@@ -16,9 +16,9 @@ void draw () {
   strokeWeight(5);
   stroke(0,100,0); 
   noFill();
-  circle(0,0,frameCount);
+  circle(width/2,height/2,frameCount);
   
-  visualizacion(1);
+  //visualizacion(3);
   // 0 = cuadro que se mueve con el mouse
   // 1 = rallas de colores que se mueven automanticamente
   // 2 = cuadro de otro color
