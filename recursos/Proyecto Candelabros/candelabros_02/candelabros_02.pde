@@ -1,10 +1,10 @@
 ParticleSystem ps; //sistema de particulas
 ArrayList<PVector> points; // puntos donde se detecta cada luz
 
-float largo_linea = 30;
-boolean draw_blobs = true;
-boolean draw_boxs = true;
-boolean draw_centers = true;
+float largo_linea = 30; // el maximo largo de la linea entre particulas
+boolean draw_blobs = true;  // dibuja las manchas verdes
+boolean draw_boxs = true;    // dibuja las cajas rojas
+boolean draw_centers = true; // dibuja un circulo en el centro del blob
 
 void setup()
 {
@@ -17,7 +17,7 @@ void setup()
   
   // Definimos el sistema de particulas 
   ps = new ParticleSystem();
-  frameRate(20);
+
 }
 
 
@@ -37,7 +37,7 @@ void draw()
   //esta funcion hace que se muevan las particulas y dibuja las particulas
   ps.run();
 
-  // esto funcion dibuja las lineas entre las particulas
+  // esto dibuja las lineas entre las particulas
   stroke(255,255,0,150);
   ps.draw_network();
   
