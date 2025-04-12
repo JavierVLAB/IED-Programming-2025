@@ -14,7 +14,7 @@ void clearLeds(String arduinoIP) {
   }
   // send dmx to localhost
   artnet.unicastDmx(arduinoIP, 0, 0, dmxData);
-  //artnet.unicastDmx(arduinoIP, 0, 1, dmxData);
+  artnet.unicastDmx(arduinoIP, 0, 1, dmxData);
 }
 
 
@@ -33,26 +33,34 @@ void setupDMX(String arduinoIP)
 void sendDMX(int numLedsX, int numLedsY, String arduinoIP)
 {
   loadPixels();
+  for (int j=0; j<numLedsY; j++) {
+    for (int i= 0; i<numLedsX; i++) {
 
-  for (int i= 0; i<numLedsX; i++) {
-    for (int j=0; j<numLedsY; j++) {
       int l = numLedsX*j + i;
-      int pixelPosition = numLedsX*j*60*60 + i*60;
-      
+      int pixelPosition = numLedsX*j + i;
+
       if (j%2==0) {
         l = numLedsX*j + i;
       } else {
         l = numLedsX*j + numLedsX-1-i;
-      } 
+      }
 
-      dmxData01[l*3 + 0] = (byte) red(pixels[pixelPosition]);
-      dmxData01[l*3 + 1] = (byte) green(pixels[pixelPosition]);
-      dmxData01[l*3 + 2] = (byte) blue(pixels[pixelPosition]);
+
+      if (l < 170) {
+        dmxData01[l*3 + 0] = (byte) red(pixels[pixelPosition]);
+        dmxData01[l*3 + 1] = (byte) green(pixels[pixelPosition]);
+        dmxData01[l*3 + 2] = (byte) blue(pixels[pixelPosition]);
+      } else {
+        int k = l - 170;
+        dmxData02[k*3 + 0] = (byte) red(pixels[pixelPosition]);
+        dmxData02[k*3 + 1] = (byte) green(pixels[pixelPosition]);
+        dmxData02[k*3 + 2] = (byte) blue(pixels[pixelPosition]);
+      }
     }
   }
 
   artnet.unicastDmx(arduinoIP, 0, 0, dmxData01);
-  //artnet.unicastDmx(arduinoIP, 0, 1, dmxData02);
+  artnet.unicastDmx(arduinoIP, 0, 1, dmxData02);
 }
 
 void exit() {
