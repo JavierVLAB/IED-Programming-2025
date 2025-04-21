@@ -1,6 +1,6 @@
 // numero de leds de la pantalla
 int numLedsX = 30;
-int numLedsY = 6;
+int numLedsY = 10;
 // IP de arduino, conectarlo al ordenador y ver su ip
 String arduinoIP = "192.168.12.198";
 

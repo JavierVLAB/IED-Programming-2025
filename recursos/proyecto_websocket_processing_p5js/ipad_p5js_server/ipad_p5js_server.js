@@ -1,6 +1,7 @@
 let socket;
 let estado = 0;
 let tiempoInicio;
+// escribe aqui tu IP
 let server_IP = "192.168.1.77";
 let tiempo_cambia_pantalla = 1000; //ms
 
