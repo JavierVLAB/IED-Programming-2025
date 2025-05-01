@@ -2,8 +2,8 @@ let socket;
 let estado = 0;
 let tiempoInicio;
 // escribe aqui tu IP
-let server_IP = "192.168.1.77";
-let tiempo_cambia_pantalla = 1000; //ms
+let server_IP = "192.168.8.141";
+let tiempo_cambia_pantalla = 3000; //ms
 
 function setup() {
   createCanvas(window.innerWidth, window.innerHeight);
@@ -11,6 +11,7 @@ function setup() {
 
   sentiment_setup();
   socket = new WebSocket("ws://"+server_IP +":8787");
+  //sentiment_setup();
 }
 
 function draw() {
